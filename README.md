@@ -1,6 +1,6 @@
 # All-in
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/mzusi/NxHood/refs/heads/main/NxHood.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huremovicalen90-hub/All-in/main/All-in.lua"))()
 ```
 
 ---
