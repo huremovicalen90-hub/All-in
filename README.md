@@ -4,6 +4,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/huremovicalen90-hub/A
 ```
 
 ---
-## **Commands**
+## **NodeV1**
 
-- **NodeV1 Booga Booga Reborn Auto Farm 4 gold nodes**
+- **NodeV1 is a Booga Booga Reborn Script Auto Farm 4 gold nodes**
