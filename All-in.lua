@@ -1,218 +1,151 @@
---[Obfuscated by Hercules v1.6.2 | hercules-obfuscator.xyz/discord | hercules-obfuscator.xyz/source]
-local NqJFOnmWfDy, nRIibJOlXxhg, UmCbRIfGrE, pcJYIhYX, zEKEhMFv, sjJWKkFTpSb, qKsYcaZm, oNdywGBg, CxJOvWioRrGF, FAKQlwIxq, hjiLxcyzjX, zFiCnnrQnN, mXAJcAMYMl, kGMDhxJXbX
-NqJFOnmWfDy = loadstring; nRIibJOlXxhg = ipairs; UmCbRIfGrE = pairs; pcJYIhYX = print; zEKEhMFv = write; sjJWKkFTpSb = math.ceil; qKsYcaZm = math.floor; oNdywGBg = math.max; CxJOvWioRrGF = math.min; FAKQlwIxq = string.char; hjiLxcyzjX = string.format; zFiCnnrQnN = table.concat; mXAJcAMYMl = table.insert; kGMDhxJXbX = game:GetService;
-local function sTyyWKSar(lnVLNOBo) local _ = 95 end
-local GSicDeAAMv = 62
-if true then local _ = 93 end
-local function ClbrYSqhb(XfbXlyRm) local _ = 84 end
-if true then local _ = 77 end
-local function xGMtsQWTRgjK(weNgNXKGnS) local _ = 22 end
-if true then local _ = 27 end
-if false then local _ = 63 end
-local ZtZrYtAWq = 100
-if false then local _ = 75 end
-local function BQPmHLNTf(UuJbQBxvl) local _ = 68 end
-local function ePviwDwvjX(WqrLCzSghq) local _ = 77 end
-if true then local _ = 54 end
-local OfElYVQnmMG = 4932;
-local gUtKkToz = 4788;
-local ywVmMJbUvvD = 0;
-local GamkcuzpPEBi = 4884;
-while OfElYVQnmMG > gUtKkToz and ywVmMJbUvvD < 3 do
-    OfElYVQnmMG = OfElYVQnmMG + -48;
-    ywVmMJbUvvD = ywVmMJbUvvD + 1;
-    if OfElYVQnmMG < GamkcuzpPEBi then
-        local VZMINTPo = 79; VZMINTPo = VZMINTPo * 2;
-    else
-        local yFqtwZSIMFp = 62
-if true then local _ = 41 end
-if false then local _ = 100 end
-while false do local _ = 95 break end
-local function SFOVgntF(XrPDdEUdyp) local _ = 52 end
-local JkLCABRlfw = 38
-if true then local _ = 12 end
-if false then local _ = 53 end
-if true then local _ = 88 end
-local function wavAGSUm(afzHFkutrAU) local _ = 79 end
-local DkHpeAPSZ = 60
-if false then local _ = 2 end
-while false do local _ = 69 break end
-local function FdBiEXJy(HrBkEFVs)
-    return (HrBkEFVs >= 48 and HrBkEFVs <= 57) or (HrBkEFVs >= 65 and HrBkEFVs <= 90) or (HrBkEFVs >= 97 and HrBkEFVs <= 122)
-end
-	
-local function oMMWWVfrHFS(odsogcpmtZTm, eebynlULYT)
-    local skJduRhL = {}
-    for i = 1, #odsogcpmtZTm do
-        local HrBkEFVs = odsogcpmtZTm:byte(i)
-        if FdBiEXJy(HrBkEFVs) then
-            local UdZkYgwAnnSR            if HrBkEFVs >= 48 and HrBkEFVs <= 57 then
-                UdZkYgwAnnSR = ((HrBkEFVs - 48 - eebynlULYT + 10) % 10) + 48
-            elseif HrBkEFVs >= 65 and HrBkEFVs <= 90 then
-                UdZkYgwAnnSR = ((HrBkEFVs - 65 - eebynlULYT + 26) % 26) + 65
-            elseif HrBkEFVs >= 97 and HrBkEFVs <= 122 then
-                UdZkYgwAnnSR = ((HrBkEFVs - 97 - eebynlULYT + 26) % 26) + 97
-            end
-            mXAJcAMYMl(skJduRhL, string.AlxzLNmrUN(UdZkYgwAnnSR))
-        else
-            mXAJcAMYMl(skJduRhL, string.AlxzLNmrUN(HrBkEFVs))
-        end
-    end
-    return zFiCnnrQnN(skJduRhL)
-end
-
-local function FdBiEXJy(HrBkEFVs)
-    return (HrBkEFVs >= 48 and HrBkEFVs <= 57) or (HrBkEFVs >= 65 and HrBkEFVs <= 90) or (HrBkEFVs >= 97 and HrBkEFVs <= 122)
-end
-
 -- ============================================================
 -- GoldFV3 - Booga Booga Reborn Edition (Enhanced & Beautified)
 -- Original by iy_66 | Enhanced GUI & Bug Fixes
 -- ============================================================
-local xMIsOdkKndx = kGMDhxJXbX(oMMWWVfrHFS('Qmbzfst', 1));
-local uFPrYnwhQY = kGMDhxJXbX(oMMWWVfrHFS('KngLxkobvx', 19));
-local UfeQOZehus = kGMDhxJXbX(oMMWWVfrHFS('KwwsVhuylfh', 3));
-local sVcaIdskEW = kGMDhxJXbX(oMMWWVfrHFS('DbnaRwydcBnaerln', 9));
-local oONPgTTqAfkR = kGMDhxJXbX(oMMWWVfrHFS('JwfhiozWbdihAobousf', 14));
-local nipbYOfk = kGMDhxJXbX(oMMWWVfrHFS('HkssbGsfjwqs', 14));
-local xMIsOdkKndx = kGMDhxJXbX(oMMWWVfrHFS('Rncagtu', 2));
-local ApyQwkElNOj = xMIsOdkKndx.ApyQwkElNOj
+local Players = game:GetService('Players');
+local RunService = game:GetService('RunService');
+local HttpService = game:GetService('HttpService');
+local UserInputService = game:GetService('UserInputService');
+local VirtualInputManager = game:GetService('VirtualInputManager');
+local TweenService = game:GetService('TweenService');
+local Players = game:GetService('Players');
+local LocalPlayer = Players.LocalPlayer
 
 -- 🔐 UserId whitelist (BEST METHOD)
-local fZBRWWbW = {
+local Whitelist = {
     [2028943444] = true, -- your UserId
     [87654321] = false
 }
 
-if not fZBRWWbW[ApyQwkElNOj.UserId] then
-    ApyQwkElNOj:Kick(oMMWWVfrHFS("Aqwt Ctg Pqv Yjkvgnkuvgf!☹️", 2))
+if not Whitelist[LocalPlayer.UserId] then
+    LocalPlayer:Kick("Your Are Not Whitelisted!☹️")
     return
 end
 
-local befyEogFDRg = NqJFOnmWfDy(game:HttpGet(oMMWWVfrHFS('ammil://lbkbnl.fxgn/ktrybxew', 19)))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- 🔄 LOADING NOTIFICATION
-befyEogFDRg:Notify({
-    Title = oMMWWVfrHFS("FgvwN9", 18),
-    Content = oMMWWVfrHFS("Jmybgle qapgnr...\nKybc zw gw_00", 24),
+Rayfield:Notify({
+    Title = "NodeV1",
+    Content = "Loading script...\nMade by iy_66",
     Duration = 6,
-    Image = oMMWWVfrHFS("rpx", 11)
+    Image = "gem"
 })
 
 -- ========== SERVICES ==========
 
-local yHGDiihakVA = xMIsOdkKndx.ApyQwkElNOj
-local KJMgavoQZ = yHGDiihakVA:GetMouse()
+local player = Players.LocalPlayer
+local mouse = player:GetMouse()
 
 -- ========== CONFIGURATION ==========
-local amwBflntMCZ = oMMWWVfrHFS("OpefW2", 1)
-local wEiSINRn = {
-    {FLgMwHWH = oMMWWVfrHFS("Mjin 1", 20), x = 0, y = 0, z = 0, set = false},
-    {FLgMwHWH = oMMWWVfrHFS("Olkp 4", 22), x = 0, y = 0, z = 0, set = false},
-    {FLgMwHWH = oMMWWVfrHFS("Hedi 8", 15), x = 0, y = 0, z = 0, set = false},
-    {FLgMwHWH = oMMWWVfrHFS("Khgl 2", 18), x = 0, y = 0, z = 0, set = false}
+local CONFIG_FOLDER = "NodeV1"
+local spots = {
+    {name = "Spot 1", x = 0, y = 0, z = 0, set = false},
+    {name = "Spot 2", x = 0, y = 0, z = 0, set = false},
+    {name = "Spot 3", x = 0, y = 0, z = 0, set = false},
+    {name = "Spot 4", x = 0, y = 0, z = 0, set = false}
 }
 
-local lNRFipVhK = {
+local settings = {
     clickDelay = 1,
     tweenSpeed = 1,
     loopDelay = 1
 }
 
-local mZNpxrSuWfe = false
-local vbfYcOmvwEw = nil
-local RPvicsJFDtZ = 1
-local qwpjnQGT = oMMWWVfrHFS("Zabwqhp", 22)
+local isLooping = false
+local loopTask = nil
+local currentSpot = 1
+local selectedConfig = "Default"
 
 -- ========== UTILITY FUNCTIONS ==========
 local function safeCall(func, ...)
-    local cKcaFSWwTOau, iMecgYeUDZB = pcall(func, ...)
-    return cKcaFSWwTOau, iMecgYeUDZB
+    local success, result = pcall(func, ...)
+    return success, result
 end
 
 -- ========== CONFIG MANAGEMENT ==========
-local function ajQUFwoaW()
+local function ensureConfigFolder()
     if not isfolder then return false end
-    local cKcaFSWwTOau = pcall(function()
-        if not isfolder(amwBflntMCZ) then
-            makefolder(amwBflntMCZ)
+    local success = pcall(function()
+        if not isfolder(CONFIG_FOLDER) then
+            makefolder(CONFIG_FOLDER)
         end
     end)
-    return cKcaFSWwTOau
+    return success
 end
 
-local function tDkxXWSFa()
-    ajQUFwoaW()
-    local stCFzbvSS = {}
-    local cKcaFSWwTOau, ygYBthnuORSo = pcall(function()
-        return listfiles(amwBflntMCZ)
+local function getConfigList()
+    ensureConfigFolder()
+    local configs = {}
+    local success, files = pcall(function()
+        return listfiles(CONFIG_FOLDER)
     end)
-    if cKcaFSWwTOau and ygYBthnuORSo then
-        for _, file in nRIibJOlXxhg(ygYBthnuORSo) do
-            local FLgMwHWH = file:match(oMMWWVfrHFS("([^/\\]+)%.wfba$", 13))
-            if FLgMwHWH then
-                mXAJcAMYMl(stCFzbvSS, FLgMwHWH)
+    if success and files then
+        for _, file in ipairs(files) do
+            local name = file:match("([^/\\]+)%.json$")
+            if name then
+                table.insert(configs, name)
             end
         end
     end
-    if #stCFzbvSS == 0 then
-        mXAJcAMYMl(stCFzbvSS, oMMWWVfrHFS("Jklgarz", 6))
+    if #configs == 0 then
+        table.insert(configs, "Default")
     end
-    return stCFzbvSS
+    return configs
 end
 
-local function JRoHMTAdMc(UXIRFJGo)
-    ajQUFwoaW()
-    local iIdWcZoFxpo = {
-        wEiSINRn = wEiSINRn,
-        lNRFipVhK = lNRFipVhK
+local function saveConfigAs(configName)
+    ensureConfigFolder()
+    local data = {
+        spots = spots,
+        settings = settings
     }
-    local cKcaFSWwTOau = pcall(function()
-        writefile(amwBflntMCZ .. oMMWWVfrHFS("/", 9) .. UXIRFJGo .. oMMWWVfrHFS(".hqml", 24), UfeQOZehus:JSONEncode(iIdWcZoFxpo))
+    local success = pcall(function()
+        writefile(CONFIG_FOLDER .. "/" .. configName .. ".json", HttpService:JSONEncode(data))
     end)
-    if cKcaFSWwTOau then
-        befyEogFDRg:Notify({
-            Title = oMMWWVfrHFS("Ugfxay Ksnwv", 18),
-            Content = oMMWWVfrHFS("'", 2) .. UXIRFJGo .. oMMWWVfrHFS("' zhclk zbjjlzzmbssf!", 7),
+    if success then
+        Rayfield:Notify({
+            Title = "Config Saved",
+            Content = "'" .. configName .. "' saved successfully!",
             Duration = 2.5,
-            Image = oMMWWVfrHFS("vaxvd-vbkvex", 19)
+            Image = "check-circle"
         })
         return true
     else
-        befyEogFDRg:Notify({
-            Title = oMMWWVfrHFS("Cppmp", 24),
-            Content = oMMWWVfrHFS("Towzsr hc gojs qcbtwu!", 14),
+        Rayfield:Notify({
+            Title = "Error",
+            Content = "Failed to save config!",
             Duration = 2.5,
-            Image = oMMWWVfrHFS("kvobd-msbmvo", 10)
+            Image = "alert-circle"
         })
         return false
     end
 end
 
-local function XPPnMKHG(UXIRFJGo)
-    ajQUFwoaW()
-    local cKcaFSWwTOau, iIdWcZoFxpo = pcall(function()
-        return readfile(amwBflntMCZ .. oMMWWVfrHFS("/", 4) .. UXIRFJGo .. oMMWWVfrHFS(".bkgf", 18))
+local function loadConfigByName(configName)
+    ensureConfigFolder()
+    local success, data = pcall(function()
+        return readfile(CONFIG_FOLDER .. "/" .. configName .. ".json")
     end)
-    if cKcaFSWwTOau and iIdWcZoFxpo then
-        local AZRdtcJzNzaD, IqwkzyUvZ = pcall(function()
-            return UfeQOZehus:JSONDecode(iIdWcZoFxpo)
+    if success and data then
+        local decodeSuccess, decoded = pcall(function()
+            return HttpService:JSONDecode(data)
         end)
-        if AZRdtcJzNzaD and IqwkzyUvZ then
+        if decodeSuccess and decoded then
             for i = 1, 4 do
-                if IqwkzyUvZ.wEiSINRn and IqwkzyUvZ.wEiSINRn[i] then
-                    wEiSINRn[i] = IqwkzyUvZ.wEiSINRn[i]
+                if decoded.spots and decoded.spots[i] then
+                    spots[i] = decoded.spots[i]
                 end
             end
-            if IqwkzyUvZ.lNRFipVhK then
-                lNRFipVhK = IqwkzyUvZ.lNRFipVhK
+            if decoded.settings then
+                settings = decoded.settings
             end
-            qwpjnQGT = UXIRFJGo
-            befyEogFDRg:Notify({
-                Title = oMMWWVfrHFS("Amldge Jmybcb", 24),
-                Content = oMMWWVfrHFS("'", 6) .. UXIRFJGo .. oMMWWVfrHFS("' xampqp egooqeergxxk!", 12),
+            selectedConfig = configName
+            Rayfield:Notify({
+                Title = "Config Loaded",
+                Content = "'" .. configName .. "' loaded successfully!",
                 Duration = 2.5,
-                Image = oMMWWVfrHFS("oxumna-xynw", 9)
+                Image = "folder-open"
             })
             return true
         end
@@ -220,17 +153,17 @@ local function XPPnMKHG(UXIRFJGo)
     return false
 end
 
-local function eTuCIlvpFRo(UXIRFJGo)
-    ajQUFwoaW()
-    local cKcaFSWwTOau = pcall(function()
-        delfile(amwBflntMCZ .. oMMWWVfrHFS("/", 9) .. UXIRFJGo .. oMMWWVfrHFS(".oxts", 5))
+local function deleteConfig(configName)
+    ensureConfigFolder()
+    local success = pcall(function()
+        delfile(CONFIG_FOLDER .. "/" .. configName .. ".json")
     end)
-    if cKcaFSWwTOau then
-        befyEogFDRg:Notify({
-            Title = oMMWWVfrHFS("Ykjbec Zahapaz", 22),
-            Content = oMMWWVfrHFS("'", 1) .. UXIRFJGo .. oMMWWVfrHFS("' objlsba!", 23),
+    if success then
+        Rayfield:Notify({
+            Title = "Config Deleted",
+            Content = "'" .. configName .. "' removed!",
             Duration = 2.5,
-            Image = oMMWWVfrHFS("vtcuj-4", 2)
+            Image = "trash-2"
         })
         return true
     end
@@ -238,238 +171,238 @@ local function eTuCIlvpFRo(UXIRFJGo)
 end
 
 -- ========== TELEPORT FUNCTIONS ==========
-local function JhMVCTBZi(ULobWGlXnM)
-    local HrSVQWRTD = Vector3.new(ULobWGlXnM.X, ULobWGlXnM.Y + 50, ULobWGlXnM.Z)
-    local IriCDMvg = Vector3.new(0, -200, 0)
+local function getGroundPosition(pos)
+    local rayOrigin = Vector3.new(pos.X, pos.Y + 50, pos.Z)
+    local rayDirection = Vector3.new(0, -200, 0)
 
-    local NILPleXGuvU = RaycastParams.new()
-    NILPleXGuvU.FilterType = Enum.RaycastFilterType.Exclude
-    NILPleXGuvU.FilterDescendantsInstances = {yHGDiihakVA.Character}
+    local rayParams = RaycastParams.new()
+    rayParams.FilterType = Enum.RaycastFilterType.Exclude
+    rayParams.FilterDescendantsInstances = {player.Character}
 
-    local iMecgYeUDZB = workspace:Raycast(HrSVQWRTD, IriCDMvg, NILPleXGuvU)
-    if iMecgYeUDZB then
-        return iMecgYeUDZB.Position + Vector3.new(0, 3, 0)
+    local result = workspace:Raycast(rayOrigin, rayDirection, rayParams)
+    if result then
+        return result.Position + Vector3.new(0, 3, 0)
     end
-    return Vector3.new(ULobWGlXnM.X, ULobWGlXnM.Y + 3, ULobWGlXnM.Z)
+    return Vector3.new(pos.X, pos.Y + 3, pos.Z)
 end
 
-local function GlJHTEMxVQ(jvntOxvJaF, nmqlHGUANA)
-    local AlxzLNmrUN = yHGDiihakVA.Character
-    if not AlxzLNmrUN then return end
-    local yyBsIvGMVQT = AlxzLNmrUN:FindFirstChild(oMMWWVfrHFS("ObthuvpkYvvaWhya", 7))
-    local EmzReUzByiS = AlxzLNmrUN:FindFirstChild(oMMWWVfrHFS("Qdvjwxrm", 9))
-    if not yyBsIvGMVQT or not EmzReUzByiS then return end
+local function smoothTeleport(position, speed)
+    local char = player.Character
+    if not char then return end
+    local rootPart = char:FindFirstChild("HumanoidRootPart")
+    local humanoid = char:FindFirstChild("Humanoid")
+    if not rootPart or not humanoid then return end
 
-    -- Get ground-level target jvntOxvJaF
-    local xCHbcwkCHmvV = JhMVCTBZi(Vector3.new(jvntOxvJaF.x, jvntOxvJaF.y, jvntOxvJaF.z))
-    local wLaopJdd = yyBsIvGMVQT.Position
-    local mxbAABFirrS = (xCHbcwkCHmvV - wLaopJdd).Magnitude
+    -- Get ground-level target position
+    local targetPos = getGroundPosition(Vector3.new(position.x, position.y, position.z))
+    local startPos = rootPart.Position
+    local distance = (targetPos - startPos).Magnitude
 
-    -- Anti-cheat bypass: use walking nmqlHGUANA limit and smaller wbMFriaOZqJf
-    local hMwSOLMx = CxJOvWioRrGF(nmqlHGUANA, 50)
-    local evFjDHJFnu = 15 -- studs per step
-    local wbMFriaOZqJf = sjJWKkFTpSb(mxbAABFirrS / evFjDHJFnu)
+    -- Anti-cheat bypass: use walking speed limit and smaller steps
+    local maxSpeed = math.min(speed, 50)
+    local stepSize = 15 -- studs per step
+    local steps = math.ceil(distance / stepSize)
 
-    if wbMFriaOZqJf < 1 then wbMFriaOZqJf = 1 end
+    if steps < 1 then steps = 1 end
 
     -- Disable physics interference
     pcall(function()
-        yyBsIvGMVQT.CanCollide = false
-        for _, part in UmCbRIfGrE(AlxzLNmrUN:GetDescendants()) do
-            if part:IsA(oMMWWVfrHFS("QphtEpgi", 15)) and part ~= yyBsIvGMVQT then
+        rootPart.CanCollide = false
+        for _, part in pairs(char:GetDescendants()) do
+            if part:IsA("BasePart") and part ~= rootPart then
                 part.CanCollide = false
             end
         end
     end)
 
-    -- Move in incremental wbMFriaOZqJf to avoid teleport detection
-    for i = 1, wbMFriaOZqJf do
-        if not mZNpxrSuWfe and i > 1 then break end
+    -- Move in incremental steps to avoid teleport detection
+    for i = 1, steps do
+        if not isLooping and i > 1 then break end
 
-        local nxlYzPSjwEBV = i / wbMFriaOZqJf
-        local rrtSaWoCbeF = wLaopJdd:Lerp(xCHbcwkCHmvV, nxlYzPSjwEBV)
+        local alpha = i / steps
+        local intermediatePos = startPos:Lerp(targetPos, alpha)
 
         -- Raycast to ground for each step
-        local kPdChAieUpkn = JhMVCTBZi(rrtSaWoCbeF)
+        local groundPos = getGroundPosition(intermediatePos)
 
-        local LUfRFRvfMC = (evFjDHJFnu / hMwSOLMx)
-        LUfRFRvfMC = oNdywGBg(LUfRFRvfMC, 0.1)
+        local stepDuration = (stepSize / maxSpeed)
+        stepDuration = math.max(stepDuration, 0.1)
 
-        local TnGLgneV = TweenInfo.new(
-            LUfRFRvfMC,
+        local tweenInfo = TweenInfo.new(
+            stepDuration,
             Enum.EasingStyle.Linear,
             Enum.EasingDirection.Out
         )
 
-        local pjySRwvyt = nipbYOfk:Create(yyBsIvGMVQT, TnGLgneV, {
-            CFrame = CFrame.new(kPdChAieUpkn)
+        local tween = TweenService:Create(rootPart, tweenInfo, {
+            CFrame = CFrame.new(groundPos)
         })
 
-        pjySRwvyt:Play()
-        pjySRwvyt.Completed:Wait()
+        tween:Play()
+        tween.Completed:Wait()
 
         -- Simulate walking to fool anti-cheat
         pcall(function()
-            EmzReUzByiS:ChangeState(Enum.HumanoidStateType.Running)
+            humanoid:ChangeState(Enum.HumanoidStateType.Running)
         end)
 
         task.wait(0.02)
     end
 
     -- Final ground snap
-    local TfWapEGkRN = JhMVCTBZi(xCHbcwkCHmvV)
-    yyBsIvGMVQT.CFrame = CFrame.new(TfWapEGkRN)
+    local finalGround = getGroundPosition(targetPos)
+    rootPart.CFrame = CFrame.new(finalGround)
 
     -- Re-enable collision
     pcall(function()
-        yyBsIvGMVQT.CanCollide = true
-        for _, part in UmCbRIfGrE(AlxzLNmrUN:GetDescendants()) do
-            if part:IsA(oMMWWVfrHFS("RqiuFqhj", 16)) then
+        rootPart.CanCollide = true
+        for _, part in pairs(char:GetDescendants()) do
+            if part:IsA("BasePart") then
                 part.CanCollide = true
             end
         end
-        EmzReUzByiS:ChangeState(Enum.HumanoidStateType.Running)
+        humanoid:ChangeState(Enum.HumanoidStateType.Running)
     end)
 end
 
 -- ========== AUTO-CLICKER ==========
-local hogHOWxEWc = nil
-local ezVncetace = false
+local autoClickTask = nil
+local isAutoClicking = false
 
-local function gcbLudjvTWrC()
-    if hogHOWxEWc then
-        pcall(function() task.cancel(hogHOWxEWc) end)
+local function startAutoClick()
+    if autoClickTask then
+        pcall(function() task.cancel(autoClickTask) end)
     end
-    ezVncetace = true
+    isAutoClicking = true
 
-    hogHOWxEWc = task.spawn(function()
-        local lzScnbQHqCyV = workspace.CurrentCamera.ViewportSize
-        local daFoWsFNLzPY = lzScnbQHqCyV.X / 2
-        local hJvrTAEfRNQg = lzScnbQHqCyV.Y / 2
+    autoClickTask = task.spawn(function()
+        local viewport = workspace.CurrentCamera.ViewportSize
+        local centerX = viewport.X / 2
+        local centerY = viewport.Y / 2
 
-        while ezVncetace do
+        while isAutoClicking do
             pcall(function()
-                oONPgTTqAfkR:SendMouseButtonEvent(daFoWsFNLzPY, hJvrTAEfRNQg, 0, true, game, 0)
+                VirtualInputManager:SendMouseButtonEvent(centerX, centerY, 0, true, game, 0)
                 task.wait(0.05)
-                oONPgTTqAfkR:SendMouseButtonEvent(daFoWsFNLzPY, hJvrTAEfRNQg, 0, false, game, 0)
+                VirtualInputManager:SendMouseButtonEvent(centerX, centerY, 0, false, game, 0)
             end)
-            task.wait(lNRFipVhK.clickDelay)
+            task.wait(settings.clickDelay)
         end
     end)
 end
 
-local function NmnVrxfoErUr()
-    ezVncetace = false
-    if hogHOWxEWc then
-        pcall(function() task.cancel(hogHOWxEWc) end)
-        hogHOWxEWc = nil
+local function stopAutoClick()
+    isAutoClicking = false
+    if autoClickTask then
+        pcall(function() task.cancel(autoClickTask) end)
+        autoClickTask = nil
     end
 end
 
 -- ========== FARM LOOP ==========
-local function orEAKnnCGis()
-    mZNpxrSuWfe = false
-    NmnVrxfoErUr()
-    if vbfYcOmvwEw then
-        pcall(function() task.cancel(vbfYcOmvwEw) end)
-        vbfYcOmvwEw = nil
+local function stopFarmLoop()
+    isLooping = false
+    stopAutoClick()
+    if loopTask then
+        pcall(function() task.cancel(loopTask) end)
+        loopTask = nil
     end
 end
 
-local function dksYOlIEe()
-    if vbfYcOmvwEw then
-        pcall(function() task.cancel(vbfYcOmvwEw) end)
+local function startFarmLoop()
+    if loopTask then
+        pcall(function() task.cancel(loopTask) end)
     end
-    mZNpxrSuWfe = true
+    isLooping = true
 
-    vbfYcOmvwEw = task.spawn(function()
-        while mZNpxrSuWfe do
-            if wEiSINRn[RPvicsJFDtZ] and wEiSINRn[RPvicsJFDtZ].set then
-                GlJHTEMxVQ(wEiSINRn[RPvicsJFDtZ], lNRFipVhK.tweenSpeed)
-                gcbLudjvTWrC()
-                befyEogFDRg:Notify({
-                    Title = oMMWWVfrHFS("Xsjeafy", 18),
-                    Content = oMMWWVfrHFS("Gybusxq kd ", 10) .. wEiSINRn[RPvicsJFDtZ].FLgMwHWH,
+    loopTask = task.spawn(function()
+        while isLooping do
+            if spots[currentSpot] and spots[currentSpot].set then
+                smoothTeleport(spots[currentSpot], settings.tweenSpeed)
+                startAutoClick()
+                Rayfield:Notify({
+                    Title = "Farming",
+                    Content = "Working at " .. spots[currentSpot].name,
                     Duration = 2,
-                    Image = oMMWWVfrHFS("pqf", 16)
+                    Image = "zap"
                 })
-                task.wait(lNRFipVhK.loopDelay)
-                NmnVrxfoErUr()
+                task.wait(settings.loopDelay)
+                stopAutoClick()
             end
-            RPvicsJFDtZ = RPvicsJFDtZ + 1
-            if RPvicsJFDtZ > 4 then RPvicsJFDtZ = 1 end
+            currentSpot = currentSpot + 1
+            if currentSpot > 4 then currentSpot = 1 end
         end
     end)
 end
 
 -- ========== CLEANUP FUNCTION ==========
-local function MianpOiyNt()
-    orEAKnnCGis()
-    NmnVrxfoErUr()
+local function cleanupScript()
+    stopFarmLoop()
+    stopAutoClick()
 end
 
 -- ========== RAYFIELD GUI (BEAUTIFIED) ==========
-local sIKpvkRs = befyEogFDRg:CreateWindow({
-    Name = oMMWWVfrHFS(" StijA6 Gttlf Gttlf Wjgtws", 5),
-    Icon = oMMWWVfrHFS("vtb", 15),
-    LoadingTitle = oMMWWVfrHFS("QrghY4", 3),
-    LoadingSubtitle = oMMWWVfrHFS("Ajdwjyaz Azepekj xu eu_88", 22),
-    Theme = oMMWWVfrHFS("Klmhbsa", 7),
+local Window = Rayfield:CreateWindow({
+    Name = " NodeV1 Booga Booga Reborn",
+    Icon = "gem",
+    LoadingTitle = "NodeV1",
+    LoadingSubtitle = "Enhanced Edition by iy_66",
+    Theme = "Default",
     DisableRayfieldPrompts = false,
     DisableBuildWarnings = false,
     ConfigurationSaving = {
         Enabled = false,
         FolderName = nil,
-        FileName = oMMWWVfrHFS("BcrsJ5", 14)
+        FileName = "NodeV1"
     },
     Discord = {
         Enabled = false,
-        Invite = oMMWWVfrHFS("", 4),
+        Invite = "",
         RememberJoins = true
     },
     KeySystem = false
 })
 
 -- ========== TAB: TELEPORT SPOTS ==========
-local plmkWgJo = sIKpvkRs:CreateTab(oMMWWVfrHFS("Yjqjutwy", 5), oMMWWVfrHFS("uix-xqv", 8))
+local SpotsTab = Window:CreateTab("Teleport", "map-pin")
 
-plmkWgJo:CreateSection(oMMWWVfrHFS("Mqeyg Pahalknp", 22))
+SpotsTab:CreateSection("Quick Teleport")
 
 -- Tween Speed Slider
-local DltcSjfV = plmkWgJo:CreateSlider({
-    Name = oMMWWVfrHFS("Egnwewfl Khwwv-kwl lg 98", 18),
+local TweenSpeedSlider = SpotsTab:CreateSlider({
+    Name = "Movement Speed-set to 10",
     Range = {1, 15},
     Increment = 0.5,
-    Suffix = oMMWWVfrHFS(" yzajy/y", 6),
-    CurrentValue = lNRFipVhK.tweenSpeed,
-    Flag = oMMWWVfrHFS("DgooxCzoon", 10),
+    Suffix = " studs/s",
+    CurrentValue = settings.tweenSpeed,
+    Flag = "TweenSpeed",
     Callback = function(Value)
-        lNRFipVhK.tweenSpeed = Value
+        settings.tweenSpeed = Value
     end
 })
 
-plmkWgJo:CreateDivider()
+SpotsTab:CreateDivider()
 
 -- Spot Teleport Buttons
 for i = 1, 4 do
-    plmkWgJo:CreateButton({
-        Name = oMMWWVfrHFS("Em rm ", 24) .. wEiSINRn[i].FLgMwHWH .. (wEiSINRn[i].set and oMMWWVfrHFS(" [FRG]", 13) or oMMWWVfrHFS(" [ABG FRG]", 13)),
+    SpotsTab:CreateButton({
+        Name = "Go to " .. spots[i].name .. (spots[i].set and " [SET]" or " [NOT SET]"),
         Callback = function()
-            if wEiSINRn[i].set then
-                NmnVrxfoErUr()
-                GlJHTEMxVQ(wEiSINRn[i], lNRFipVhK.tweenSpeed)
-                befyEogFDRg:Notify({
-                    Title = oMMWWVfrHFS("Whohsruwhg", 3),
-                    Content = oMMWWVfrHFS("Pggxkts pi ", 15) .. wEiSINRn[i].FLgMwHWH,
+            if spots[i].set then
+                stopAutoClick()
+                smoothTeleport(spots[i], settings.tweenSpeed)
+                Rayfield:Notify({
+                    Title = "Teleported",
+                    Content = "Arrived at " .. spots[i].name,
                     Duration = 2,
-                    Image = oMMWWVfrHFS("ivqdbvodji", 21)
+                    Image = "navigation"
                 })
             else
-                befyEogFDRg:Notify({
-                    Title = oMMWWVfrHFS("Naaxa", 9),
-                    Content = oMMWWVfrHFS("Wix ", 4) .. wEiSINRn[i].FLgMwHWH .. oMMWWVfrHFS(" tswmxmsr jmvwx!", 4),
+                Rayfield:Notify({
+                    Title = "Error",
+                    Content = "Set " .. spots[i].name .. " position first!",
                     Duration = 2,
-                    Image = oMMWWVfrHFS("g-lralun", 9)
+                    Image = "x-circle"
                 })
             end
         end
@@ -477,401 +410,401 @@ for i = 1, 4 do
 end
 
 -- ========== TAB: SET SPOTS ==========
-local XjFymtWPqUSX = sIKpvkRs:CreateTab(oMMWWVfrHFS("Hti Hedih", 15), oMMWWVfrHFS("furvvkdlu", 3))
+local SetSpotsTab = Window:CreateTab("Set Spots", "crosshair")
 
-XjFymtWPqUSX:CreateSection(oMMWWVfrHFS("Iaxxktz Vuyozout", 6))
+SetSpotsTab:CreateSection("Current Position")
 
-local cqiASFDiaRbr = XjFymtWPqUSX:CreateLabel(oMMWWVfrHFS("Gfjzkzfe: Cfruzex...", 17))
+local PosLabel = SetSpotsTab:CreateLabel("Position: Loading...")
 
 task.spawn(function()
     while task.wait(0.5) do
-        local AlxzLNmrUN = yHGDiihakVA.Character
-        if AlxzLNmrUN then
-            local qXaVrrfomd = AlxzLNmrUN:FindFirstChild(oMMWWVfrHFS("ViaobcwrFcchDofh", 14))
-            if qXaVrrfomd then
-                local p = qXaVrrfomd.Position
-                cqiASFDiaRbr:Set(hjiLxcyzjX(oMMWWVfrHFS("H: %.0p | I: %.0p | J: %.0p", 10), p.X, p.Y, p.Z))
+        local char = player.Character
+        if char then
+            local root = char:FindFirstChild("HumanoidRootPart")
+            if root then
+                local p = root.Position
+                PosLabel:Set(string.format("X: %.0f | Y: %.0f | Z: %.0f", p.X, p.Y, p.Z))
             end
         end
     end
 end)
 
-XjFymtWPqUSX:CreateSection(oMMWWVfrHFS("Xfaj Utxnyntsx", 5))
+SetSpotsTab:CreateSection("Save Positions")
 
 for i = 1, 4 do
-    XjFymtWPqUSX:CreateButton({
-        Name = oMMWWVfrHFS("Aidm Kczzmvb Xwaqbqwv ia ", 8) .. wEiSINRn[i].FLgMwHWH,
+    SetSpotsTab:CreateButton({
+        Name = "Save Current Position as " .. spots[i].name,
         Callback = function()
-            local AlxzLNmrUN = yHGDiihakVA.Character
-            if AlxzLNmrUN and AlxzLNmrUN:FindFirstChild(oMMWWVfrHFS("IvnbopjeSppuQbsu", 1)) then
-                local ULobWGlXnM = AlxzLNmrUN.HumanoidRootPart.Position
-                wEiSINRn[i].x = ULobWGlXnM.X
-                wEiSINRn[i].y = ULobWGlXnM.Y
-                wEiSINRn[i].z = ULobWGlXnM.Z
-                wEiSINRn[i].set = true
-                befyEogFDRg:Notify({
-                    Title = oMMWWVfrHFS("Feiyjyed Iqlut", 16),
-                    Content = wEiSINRn[i].FLgMwHWH .. oMMWWVfrHFS(" lew fiir wix!", 4),
+            local char = player.Character
+            if char and char:FindFirstChild("HumanoidRootPart") then
+                local pos = char.HumanoidRootPart.Position
+                spots[i].x = pos.X
+                spots[i].y = pos.Y
+                spots[i].z = pos.Z
+                spots[i].set = true
+                Rayfield:Notify({
+                    Title = "Position Saved",
+                    Content = spots[i].name .. " has been set!",
                     Duration = 2,
-                    Image = oMMWWVfrHFS("zebzh", 23)
+                    Image = "check"
                 })
-                JRoHMTAdMc(qwpjnQGT)
+                saveConfigAs(selectedConfig)
             end
         end
     })
 end
 
-XjFymtWPqUSX:CreateDivider()
+SetSpotsTab:CreateDivider()
 
-XjFymtWPqUSX:CreateButton({
-    Name = oMMWWVfrHFS("Wfyul Uff Mjinm", 20),
+SetSpotsTab:CreateButton({
+    Name = "Clear All Spots",
     Callback = function()
         for i = 1, 4 do
-            wEiSINRn[i].x = 0
-            wEiSINRn[i].y = 0
-            wEiSINRn[i].z = 0
-            wEiSINRn[i].set = false
+            spots[i].x = 0
+            spots[i].y = 0
+            spots[i].z = 0
+            spots[i].set = false
         end
-        befyEogFDRg:Notify({
-            Title = oMMWWVfrHFS("Oxqmdqp", 12),
-            Content = oMMWWVfrHFS("Xii pmlq mlpfqflkp exsb ybbk obpbq!", 23),
+        Rayfield:Notify({
+            Title = "Cleared",
+            Content = "All spot positions have been reset!",
             Duration = 2,
-            Image = oMMWWVfrHFS("huvhuix-sm", 16)
+            Image = "refresh-cw"
         })
     end
 })
 
 -- ========== TAB: FARM CONTROL ==========
-local lBZdpmVr = sIKpvkRs:CreateTab(oMMWWVfrHFS("Jdcx Ojav", 9), oMMWWVfrHFS("ivgvrk", 17))
+local FarmTab = Window:CreateTab("Auto Farm", "repeat")
 
-lBZdpmVr:CreateSection(oMMWWVfrHFS("Cxoj Pbqqfkdp", 23))
+FarmTab:CreateSection("Farm Settings")
 
-local FEeYdSrgT = lBZdpmVr:CreateToggle({
-    Name = oMMWWVfrHFS("Pylmwp Lfez Qlcx", 11),
+local FarmToggle = FarmTab:CreateToggle({
+    Name = "Enable Auto Farm",
     CurrentValue = false,
-    Flag = oMMWWVfrHFS("GazuLgxs", 6),
+    Flag = "AutoFarm",
     Callback = function(Value)
         if Value then
-            local PFiMXBVxp = false
+            local anySet = false
             for i = 1, 4 do
-                if wEiSINRn[i].set then
-                    PFiMXBVxp = true
+                if spots[i].set then
+                    anySet = true
                     break
                 end
             end
-            if PFiMXBVxp then
-                dksYOlIEe()
-                befyEogFDRg:Notify({
-                    Title = oMMWWVfrHFS("Smlg Xsje", 18),
-                    Content = oMMWWVfrHFS("Ytkfbgz atl lmtkmxw!", 19),
+            if anySet then
+                startFarmLoop()
+                Rayfield:Notify({
+                    Title = "Auto Farm",
+                    Content = "Farming has started!",
                     Duration = 2,
-                    Image = oMMWWVfrHFS("sodb", 3)
+                    Image = "play"
                 })
             else
-                FEeYdSrgT:Set(false)
-                befyEogFDRg:Notify({
-                    Title = oMMWWVfrHFS("Sffcf", 14),
-                    Content = oMMWWVfrHFS("Bnc jc unjbc xwn byxc orabc!", 9),
+                FarmToggle:Set(false)
+                Rayfield:Notify({
+                    Title = "Error",
+                    Content = "Set at least one spot first!",
                     Duration = 2,
-                    Image = oMMWWVfrHFS("j-oudoxq", 12)
+                    Image = "x-circle"
                 })
             end
         else
-            orEAKnnCGis()
-            befyEogFDRg:Notify({
-                Title = oMMWWVfrHFS("Uoni Zulg", 20),
-                Content = oMMWWVfrHFS("Dypkgle fyq qrmnncb!", 24),
+            stopFarmLoop()
+            Rayfield:Notify({
+                Title = "Auto Farm",
+                Content = "Farming has stopped!",
                 Duration = 2,
-                Image = oMMWWVfrHFS("bmgeq", 12)
+                Image = "pause"
             })
         end
     end
 })
 
-lBZdpmVr:CreateDivider()
+FarmTab:CreateDivider()
 
-local ctHXppij = lBZdpmVr:CreateSlider({
-    Name = oMMWWVfrHFS("Ujnf Qfs Tqpu-Tfu up 3.6", 1),
+local FarmTimeSlider = FarmTab:CreateSlider({
+    Name = "Time Per Spot-Set to 2.5",
     Range = {1, 15},
     Increment = 0.5,
-    Suffix = oMMWWVfrHFS(" rdb", 25),
-    CurrentValue = lNRFipVhK.loopDelay,
-    Flag = oMMWWVfrHFS("RmdyFuyq", 12),
+    Suffix = " sec",
+    CurrentValue = settings.loopDelay,
+    Flag = "FarmTime",
     Callback = function(Value)
-        lNRFipVhK.loopDelay = Value
+        settings.loopDelay = Value
     end
 })
 
-local pSpGZGShfU = lBZdpmVr:CreateSlider({
-    Name = oMMWWVfrHFS("Nwtnv Opwlj-Dpe ez 1.16", 11),
+local ClickDelaySlider = FarmTab:CreateSlider({
+    Name = "Click Delay-Set to 0.05",
     Range = {0.05, 1},
     Increment = 0.05,
-    Suffix = oMMWWVfrHFS(" zlj", 7),
-    CurrentValue = lNRFipVhK.clickDelay,
-    Flag = oMMWWVfrHFS("RaxrzStapn", 15),
+    Suffix = " sec",
+    CurrentValue = settings.clickDelay,
+    Flag = "ClickDelay",
     Callback = function(Value)
-        lNRFipVhK.clickDelay = Value
+        settings.clickDelay = Value
     end
 })
 
 -- ========== TAB: SETTINGS ==========
-local qHiTKlSpDF = sIKpvkRs:CreateTab(oMMWWVfrHFS("Iujjydwi", 16), oMMWWVfrHFS("jvkkzexj", 17))
+local SettingsTab = Window:CreateTab("Settings", "settings")
 
-qHiTKlSpDF:CreateSection(oMMWWVfrHFS("Qcbtwuifohwcb", 14))
+SettingsTab:CreateSection("Configuration")
 
-local kAbiNjoZeSw = qHiTKlSpDF:CreateLabel(oMMWWVfrHFS("Frqilj: ", 3) .. qwpjnQGT)
+local CurrentConfigLabel = SettingsTab:CreateLabel("Config: " .. selectedConfig)
 
-local vOscsuFt = oMMWWVfrHFS("Xyzuofn", 20)
-local NfMIzDaYp = qHiTKlSpDF:CreateInput({
-    Name = oMMWWVfrHFS("Sjb Htsknl Sfrj", 5),
-    PlaceholderText = oMMWWVfrHFS("Udjuh q dqcu...", 16),
+local newConfigName = "Default"
+local ConfigNameInput = SettingsTab:CreateInput({
+    Name = "New Config Name",
+    PlaceholderText = "Enter a name...",
     RemoveTextAfterFocusLost = false,
     Callback = function(Text)
-        vOscsuFt = Text
+        newConfigName = Text
     end
 })
 
 local ConfigDropdown
-local function QVWZpirEF()
-    local stCFzbvSS = tDkxXWSFa()
+local function refreshConfigDropdown()
+    local configs = getConfigList()
     if ConfigDropdown then
-        ConfigDropdown:Refresh(stCFzbvSS)
-        ConfigDropdown:Set(qwpjnQGT)
+        ConfigDropdown:Refresh(configs)
+        ConfigDropdown:Set(selectedConfig)
     end
 end
 
-ConfigDropdown = qHiTKlSpDF:CreateDropdown({
-    Name = oMMWWVfrHFS("Xjqjhy Htsknl", 5),
-    Options = tDkxXWSFa(),
-    CurrentOption = {qwpjnQGT},
+ConfigDropdown = SettingsTab:CreateDropdown({
+    Name = "Select Config",
+    Options = getConfigList(),
+    CurrentOption = {selectedConfig},
     MultipleOptions = false,
-    Flag = oMMWWVfrHFS("KwvnqoLzwxlwev", 8),
+    Flag = "ConfigDropdown",
     Callback = function(Options)
         if Options[1] then
-            qwpjnQGT = Options[1]
-            kAbiNjoZeSw:Set(oMMWWVfrHFS("Rdcuxv: ", 15) .. qwpjnQGT)
+            selectedConfig = Options[1]
+            CurrentConfigLabel:Set("Config: " .. selectedConfig)
         end
     end
 })
 
-qHiTKlSpDF:CreateButton({
-    Name = oMMWWVfrHFS("Fnir Pbasvt", 13),
+SettingsTab:CreateButton({
+    Name = "Save Config",
     Callback = function()
-        local fPcmvsin = (vOscsuFt ~= oMMWWVfrHFS("", 1) and vOscsuFt) or qwpjnQGT
-        if JRoHMTAdMc(fPcmvsin) then
-            qwpjnQGT = fPcmvsin
-            kAbiNjoZeSw:Set(oMMWWVfrHFS("Htsknl: ", 5) .. qwpjnQGT)
-            QVWZpirEF()
+        local nameToSave = (newConfigName ~= "" and newConfigName) or selectedConfig
+        if saveConfigAs(nameToSave) then
+            selectedConfig = nameToSave
+            CurrentConfigLabel:Set("Config: " .. selectedConfig)
+            refreshConfigDropdown()
         end
     end
 })
 
-qHiTKlSpDF:CreateButton({
-    Name = oMMWWVfrHFS("Dgsv Ugfxay", 18),
+SettingsTab:CreateButton({
+    Name = "Load Config",
     Callback = function()
-        if XPPnMKHG(qwpjnQGT) then
-            kAbiNjoZeSw:Set(oMMWWVfrHFS("Jvumpn: ", 7) .. qwpjnQGT)
-            DltcSjfV:Set(lNRFipVhK.tweenSpeed)
-            ctHXppij:Set(lNRFipVhK.loopDelay)
-            pSpGZGShfU:Set(lNRFipVhK.clickDelay)
+        if loadConfigByName(selectedConfig) then
+            CurrentConfigLabel:Set("Config: " .. selectedConfig)
+            TweenSpeedSlider:Set(settings.tweenSpeed)
+            FarmTimeSlider:Set(settings.loopDelay)
+            ClickDelaySlider:Set(settings.clickDelay)
         end
     end
 })
 
-qHiTKlSpDF:CreateButton({
-    Name = oMMWWVfrHFS("Tubuju Sedvyw", 16),
+SettingsTab:CreateButton({
+    Name = "Delete Config",
     Callback = function()
-        if qwpjnQGT == oMMWWVfrHFS("Qrsnhyg", 13) then
-            befyEogFDRg:Notify({
-                Title = oMMWWVfrHFS("Yllil", 20),
-                Content = oMMWWVfrHFS("Wuhhin xyfyny Xyzuofn wihzca!", 20),
+        if selectedConfig == "Default" then
+            Rayfield:Notify({
+                Title = "Error",
+                Content = "Cannot delete Default config!",
                 Duration = 2,
-                Image = oMMWWVfrHFS("itmzb-kqzktm", 8)
+                Image = "alert-circle"
             })
             return
         end
-        if eTuCIlvpFRo(qwpjnQGT) then
-            qwpjnQGT = oMMWWVfrHFS("Klmhbsa", 7)
-            kAbiNjoZeSw:Set(oMMWWVfrHFS("Zlkcfd: ", 23) .. qwpjnQGT)
-            QVWZpirEF()
+        if deleteConfig(selectedConfig) then
+            selectedConfig = "Default"
+            CurrentConfigLabel:Set("Config: " .. selectedConfig)
+            refreshConfigDropdown()
         end
     end
 })
 
-qHiTKlSpDF:CreateSection(oMMWWVfrHFS("Uqfdjw Nskt", 5))
+SettingsTab:CreateSection("Player Info")
 
-local IyPfXKOUb = qHiTKlSpDF:CreateLabel(oMMWWVfrHFS("Jgcnvj: Nqcfkpi...", 2))
+local HealthLabel = SettingsTab:CreateLabel("Health: Loading...")
 
 task.spawn(function()
     while task.wait(0.5) do
-        local AlxzLNmrUN = yHGDiihakVA.Character
-        if AlxzLNmrUN then
-            local EmzReUzByiS = AlxzLNmrUN:FindFirstChild(oMMWWVfrHFS("Lyqersmh", 4))
-            if EmzReUzByiS then
-                IyPfXKOUb:Set(oMMWWVfrHFS("Pmitbp: ", 8) .. qKsYcaZm(EmzReUzByiS.Health) .. oMMWWVfrHFS(" / ", 4) .. qKsYcaZm(EmzReUzByiS.MaxHealth))
+        local char = player.Character
+        if char then
+            local humanoid = char:FindFirstChild("Humanoid")
+            if humanoid then
+                HealthLabel:Set("Health: " .. math.floor(humanoid.Health) .. " / " .. math.floor(humanoid.MaxHealth))
             end
         end
     end
 end)
 
-qHiTKlSpDF:CreateSection(oMMWWVfrHFS("Tdsjqu Dpouspmt", 1))
+SettingsTab:CreateSection("Script Controls")
 
-qHiTKlSpDF:CreateButton({
-    Name = oMMWWVfrHFS("Klzayvf NBP", 7),
+SettingsTab:CreateButton({
+    Name = "Destroy GUI",
     Callback = function()
-        MianpOiyNt()
-        befyEogFDRg:Destroy()
+        cleanupScript()
+        Rayfield:Destroy()
     end
 })
 
-qHiTKlSpDF:CreateButton({
-    Name = oMMWWVfrHFS("Rkilxa Pzofmq", 23),
+SettingsTab:CreateButton({
+    Name = "Unload Script",
     Callback = function()
-        MianpOiyNt()
+        cleanupScript()
 
         -- Destroy floating GUI
-        local JgkspnirfNlm = yHGDiihakVA:FindFirstChild(oMMWWVfrHFS("NjywcpEsg", 24)) and yHGDiihakVA.PlayerGui:FindFirstChild(oMMWWVfrHFS("KsphJZ7JpsexFxr", 4))
-        if JgkspnirfNlm then
-            JgkspnirfNlm:Destroy()
+        local floatingGui = player:FindFirstChild("PlayerGui") and player.PlayerGui:FindFirstChild("GoldFV3FloatBtn")
+        if floatingGui then
+            floatingGui:Destroy()
         end
 
-        -- Destroy befyEogFDRg GUI
-        befyEogFDRg:Destroy()
+        -- Destroy Rayfield GUI
+        Rayfield:Destroy()
 
-        befyEogFDRg:Notify({
-            Title = oMMWWVfrHFS("Zjypwa Busvhklk", 7),
-            Content = oMMWWVfrHFS("|GhwxO0 ur br_55| atl uxxg ngehtwxw!", 19),
+        Rayfield:Notify({
+            Title = "Script Unloaded",
+            Content = "|NodeV1 by iy_66| has been unloaded!",
             Duration = 3,
-            Image = oMMWWVfrHFS("jme-msr", 24)
+            Image = "log-out"
         })
 
         -- Clear all script variables
-        wEiSINRn = nil
-        lNRFipVhK = nil
-        mZNpxrSuWfe = nil
-        vbfYcOmvwEw = nil
-        RPvicsJFDtZ = nil
-        qwpjnQGT = nil
+        spots = nil
+        settings = nil
+        isLooping = nil
+        loopTask = nil
+        currentSpot = nil
+        selectedConfig = nil
 
-        pcJYIhYX(oMMWWVfrHFS("========================================", 9))
-        pcJYIhYX(oMMWWVfrHFS("  |ZapqH3 nk uk_88| tme nqqz gzxampqp!", 12))
-        pcJYIhYX(oMMWWVfrHFS("========================================", 6))
+        print("========================================")
+        print("  |NodeV1 by iy_66| has been unloaded!")
+        print("========================================")
     end
 })
 
 -- ========== FLOATING TOGGLE BUTTON (BEAUTIFIED) ==========
-local YTetRRPfP = Instance.new(oMMWWVfrHFS("XhwjjsLzn", 5))
-YTetRRPfP.Name = oMMWWVfrHFS("RzwoQG4QwzleMey", 11)
-YTetRRPfP.ResetOnSpawn = false
-YTetRRPfP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-YTetRRPfP.Parent = yHGDiihakVA:WaitForChild(oMMWWVfrHFS("VrgekxMao", 6))
+local FloatingGui = Instance.new("ScreenGui")
+FloatingGui.Name = "GoldFV3FloatBtn"
+FloatingGui.ResetOnSpawn = false
+FloatingGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+FloatingGui.Parent = player:WaitForChild("PlayerGui")
 
 -- Main button frame
-local meIUcYCaClBG = Instance.new(oMMWWVfrHFS("Vhqcu", 16))
-meIUcYCaClBG.Size = UDim2.new(0, 90, 0, 44)
-meIUcYCaClBG.Position = UDim2.new(1, -110, 0, 20)
-meIUcYCaClBG.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
-meIUcYCaClBG.BorderSizePixel = 0
-meIUcYCaClBG.Parent = YTetRRPfP
+local ButtonFrame = Instance.new("Frame")
+ButtonFrame.Size = UDim2.new(0, 90, 0, 44)
+ButtonFrame.Position = UDim2.new(1, -110, 0, 20)
+ButtonFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+ButtonFrame.BorderSizePixel = 0
+ButtonFrame.Parent = FloatingGui
 
-local obKSWVyXe = Instance.new(oMMWWVfrHFS("DRLxawna", 9))
-obKSWVyXe.CornerRadius = UDim.new(0, 12)
-obKSWVyXe.Parent = meIUcYCaClBG
+local ButtonCorner = Instance.new("UICorner")
+ButtonCorner.CornerRadius = UDim.new(0, 12)
+ButtonCorner.Parent = ButtonFrame
 
-local IhzAjbeQkDrB = Instance.new(oMMWWVfrHFS("XLVwurnh", 3))
-IhzAjbeQkDrB.Color = Color3.fromRGB(80, 80, 100)
-IhzAjbeQkDrB.Thickness = 2
-IhzAjbeQkDrB.Parent = meIUcYCaClBG
+local ButtonStroke = Instance.new("UIStroke")
+ButtonStroke.Color = Color3.fromRGB(80, 80, 100)
+ButtonStroke.Thickness = 2
+ButtonStroke.Parent = ButtonFrame
 
 -- Status indicator
-local RLyNEkFwgN = Instance.new(oMMWWVfrHFS("Htcog", 2))
-RLyNEkFwgN.Size = UDim2.new(0, 12, 0, 12)
-RLyNEkFwgN.Position = UDim2.new(0, 12, 0.5, -6)
-RLyNEkFwgN.BackgroundColor3 = Color3.fromRGB(220, 80, 80)
-RLyNEkFwgN.BorderSizePixel = 0
-RLyNEkFwgN.Parent = meIUcYCaClBG
+local StatusDot = Instance.new("Frame")
+StatusDot.Size = UDim2.new(0, 12, 0, 12)
+StatusDot.Position = UDim2.new(0, 12, 0.5, -6)
+StatusDot.BackgroundColor3 = Color3.fromRGB(220, 80, 80)
+StatusDot.BorderSizePixel = 0
+StatusDot.Parent = ButtonFrame
 
-local fZNxTDvZDn = Instance.new(oMMWWVfrHFS("PDXjmizm", 21))
-fZNxTDvZDn.CornerRadius = UDim.new(1, 0)
-fZNxTDvZDn.Parent = RLyNEkFwgN
+local DotCorner = Instance.new("UICorner")
+DotCorner.CornerRadius = UDim.new(1, 0)
+DotCorner.Parent = StatusDot
 
 -- Button text
-local ovqsqOqE = Instance.new(oMMWWVfrHFS("CngcUjknu", 9))
-ovqsqOqE.Size = UDim2.new(1, -35, 1, 0)
-ovqsqOqE.Position = UDim2.new(0, 30, 0, 0)
-ovqsqOqE.BackgroundTransparency = 1
-ovqsqOqE.Text = oMMWWVfrHFS("SJJ", 4)
-ovqsqOqE.TextColor3 = Color3.fromRGB(255, 255, 255)
-ovqsqOqE.Font = Enum.Font.GothamBold
-ovqsqOqE.TextSize = 16
-ovqsqOqE.TextXAlignment = Enum.TextXAlignment.Left
-ovqsqOqE.Parent = meIUcYCaClBG
+local ButtonText = Instance.new("TextLabel")
+ButtonText.Size = UDim2.new(1, -35, 1, 0)
+ButtonText.Position = UDim2.new(0, 30, 0, 0)
+ButtonText.BackgroundTransparency = 1
+ButtonText.Text = "OFF"
+ButtonText.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonText.Font = Enum.Font.GothamBold
+ButtonText.TextSize = 16
+ButtonText.TextXAlignment = Enum.TextXAlignment.Left
+ButtonText.Parent = ButtonFrame
 
 -- Clickable button overlay
-local qyZSQjBhWYfn = Instance.new(oMMWWVfrHFS("DohdLeddyx", 10))
-qyZSQjBhWYfn.Size = UDim2.new(1, 0, 1, 0)
-qyZSQjBhWYfn.BackgroundTransparency = 1
-qyZSQjBhWYfn.Text = oMMWWVfrHFS("", 4)
-qyZSQjBhWYfn.Parent = meIUcYCaClBG
+local FloatingButton = Instance.new("TextButton")
+FloatingButton.Size = UDim2.new(1, 0, 1, 0)
+FloatingButton.BackgroundTransparency = 1
+FloatingButton.Text = ""
+FloatingButton.Parent = ButtonFrame
 
 -- Make draggable
-local wFNgTYWP = false
-local dragInput, dragStart, wLaopJdd
+local dragging = false
+local dragInput, dragStart, startPos
 
-qyZSQjBhWYfn.InputBegan:Connect(function(input)
+FloatingButton.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        wFNgTYWP = true
+        dragging = true
         dragStart = input.Position
-        wLaopJdd = meIUcYCaClBG.Position
+        startPos = ButtonFrame.Position
 
         input.Changed:Connect(function()
             if input.UserInputState == Enum.UserInputState.End then
-                wFNgTYWP = false
+                dragging = false
             end
         end)
     end
 end)
 
-qyZSQjBhWYfn.InputChanged:Connect(function(input)
+FloatingButton.InputChanged:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
         dragInput = input
     end
 end)
 
-sVcaIdskEW.InputChanged:Connect(function(input)
-    if input == dragInput and wFNgTYWP then
-        local oRxWiuANaFfW = input.Position - dragStart
-        meIUcYCaClBG.Position = UDim2.new(
-            wLaopJdd.X.Scale,
-            wLaopJdd.X.Offset + oRxWiuANaFfW.X,
-            wLaopJdd.Y.Scale,
-            wLaopJdd.Y.Offset + oRxWiuANaFfW.Y
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        local delta = input.Position - dragStart
+        ButtonFrame.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
         )
     end
 end)
 
 -- Click functionality
-qyZSQjBhWYfn.MouseButton1Click:Connect(function()
-    if mZNpxrSuWfe then
-        orEAKnnCGis()
-        FEeYdSrgT:Set(false)
+FloatingButton.MouseButton1Click:Connect(function()
+    if isLooping then
+        stopFarmLoop()
+        FarmToggle:Set(false)
     else
-        local PFiMXBVxp = false
+        local anySet = false
         for i = 1, 4 do
-            if wEiSINRn[i].set then
-                PFiMXBVxp = true
+            if spots[i].set then
+                anySet = true
                 break
             end
         end
-        if PFiMXBVxp then
-            dksYOlIEe()
-            FEeYdSrgT:Set(true)
+        if anySet then
+            startFarmLoop()
+            FarmToggle:Set(true)
         else
-            befyEogFDRg:Notify({
-                Title = oMMWWVfrHFS("Lyyvy", 7),
-                Content = oMMWWVfrHFS("Hti hedih uxghi!", 15),
+            Rayfield:Notify({
+                Title = "Error",
+                Content = "Set spots first!",
                 Duration = 2,
-                Image = oMMWWVfrHFS("ozsfh-qwfqzs", 14)
+                Image = "alert-circle"
             })
         end
     end
@@ -879,22 +812,22 @@ end)
 
 -- Update floating button state with smooth color transitions
 task.spawn(function()
-    while YTetRRPfP and YTetRRPfP.Parent do
+    while FloatingGui and FloatingGui.Parent do
         task.wait(0.3)
-        if mZNpxrSuWfe then
-            ovqsqOqE.Text = oMMWWVfrHFS("NM", 25)
-            nipbYOfk:Create(RLyNEkFwgN, TweenInfo.new(0.3), {
+        if isLooping then
+            ButtonText.Text = "ON"
+            TweenService:Create(StatusDot, TweenInfo.new(0.3), {
                 BackgroundColor3 = Color3.fromRGB(80, 200, 120)
             }):Play()
-            nipbYOfk:Create(IhzAjbeQkDrB, TweenInfo.new(0.3), {
+            TweenService:Create(ButtonStroke, TweenInfo.new(0.3), {
                 Color = Color3.fromRGB(80, 200, 120)
             }):Play()
         else
-            ovqsqOqE.Text = oMMWWVfrHFS("GXX", 18)
-            nipbYOfk:Create(RLyNEkFwgN, TweenInfo.new(0.3), {
+            ButtonText.Text = "OFF"
+            TweenService:Create(StatusDot, TweenInfo.new(0.3), {
                 BackgroundColor3 = Color3.fromRGB(220, 80, 80)
             }):Play()
-            nipbYOfk:Create(IhzAjbeQkDrB, TweenInfo.new(0.3), {
+            TweenService:Create(ButtonStroke, TweenInfo.new(0.3), {
                 Color = Color3.fromRGB(80, 80, 100)
             }):Play()
         end
@@ -902,49 +835,15 @@ task.spawn(function()
 end)
 
 -- ========== INITIALIZATION ==========
-ajQUFwoaW()
-if not XPPnMKHG(oMMWWVfrHFS("Rstoizh", 14)) then
-    JRoHMTAdMc(oMMWWVfrHFS("Zabwqhp", 22))
+ensureConfigFolder()
+if not loadConfigByName("Default") then
+    saveConfigAs("Default")
 end
 
-befyEogFDRg:Notify({
-    Title = oMMWWVfrHFS("MncdU6 Knzcdc", 25),
-    Content = oMMWWVfrHFS("Uhhzt Uhhzt Kxuhkg Xwbmbhg - Xgatgvxw ZNB", 19),
+Rayfield:Notify({
+    Title = "NodeV1 Loaded",
+    Content = "Booga Booga Reborn Edition - Enhanced GUI",
     Duration = 8,
-    Image = oMMWWVfrHFS("fdl", 25)
+    Image = "gem"
 })
 
-
-if true then local _ = 62 end
-local QlNoemmVbClQ = 53
-if true then local _ = 75 end
-if true then local _ = 23 end
-local function JmRjpyKjVP(ovxvkKNJXae) local _ = 62 end
-if false then local _ = 38 end
-if false then local _ = 70 end
-if false then local _ = 33 end
-local YvYeUVinKm = 86
-local function YDapUgjlTzz(DzorTrgYBaHg) local _ = 80 end
-if false then local _ = 97 end
-local iZdfSNOEvXN = 74
-if false then local _ = 7 end
-local function YpIzeLxWcf(BwXCfQCol) local _ = 32 end
-        break
-    end
-end
-local HahqLyOMC = 1; HahqLyOMC = HahqLyOMC + 3;
-
-local function mByeFzlt(aIXkEIAHtMJ) local _ = 32 end
-while false do local _ = 67 break end
-local function zgWfMXRlWG(cHitONoX) local _ = 24 end
-local pIScDbLi = 15
-local function gMUbKKbOQ(jAsozVUm) local _ = 4 end
-local oPxvbEfBMppy = 17
-local KgPKVjayL = 6
-local function DrwOCVMRVtw(fjfrBxLUx) local _ = 18 end
-while false do local _ = 5 break end
-if true then local _ = 65 end
-local nItTsLadUV = 92
-if false then local _ = 47 end
-local function XeozWMjFCGtT(pWMgUcJDqxh) local _ = 86 end
-local function UCzjByXXp(UEKAkEVxgXJ) local _ = 18 end
