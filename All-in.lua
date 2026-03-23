@@ -1,5 +1,5 @@
 -- ============================================================
--- GoldFV3 - Booga Booga Reborn Edition (Enhanced & Beautified)
+-- NodeV1 - Booga Booga Reborn Edition (Enhanced & Beautified)
 -- Original by iy_66 | Enhanced GUI & Bug Fixes
 -- ============================================================
 local Players = game:GetService('Players');
