@@ -14,7 +14,7 @@ local LocalPlayer = Players.LocalPlayer
 -- 🔐 UserId whitelist (BEST METHOD)
 local Whitelist = {
     [2028943444] = true, -- your UserId
-    [1] = false
+    [7319862934] = false
 }
 
 if not Whitelist[LocalPlayer.UserId] then
