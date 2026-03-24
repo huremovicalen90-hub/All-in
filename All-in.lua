@@ -14,7 +14,8 @@ local LocalPlayer = Players.LocalPlayer
 -- UserId whitelist
 local Whitelist = {
     [2028943444] = true,
-    [7319862934] = true
+    [7319862934] = true,
+	[10503606140] = true
 }
 
 if not Whitelist[LocalPlayer.UserId] then
@@ -41,7 +42,7 @@ local spots = {
 }
 
 local settings = {
-    clickDelay = 1,
+    cps = 20, -- Clicks per second (1-250)
     tweenSpeed = 1,
     loopDelay = 1
 }
@@ -57,11 +58,10 @@ local autoEatConnection = nil
 local selectedFood = "Berry"
 local hungerThreshold = 85 -- Eat when hunger drops below this percentage
 
--- Auto Heal variables
+-- Holy AI COMMENTS!!!
 local isAutoHealing = false
 local autoHealConnection = nil
-local selectedHealItem = "Bloodfruit" -- Default healing item
-local healthThreshold = 80 -- Heal when health drops below this percentage
+local healthThreshold = 85
 
 -- Script state variables
 local scriptLoaded = true
@@ -108,21 +108,7 @@ local function saveConfigAs(configName)
     local success = pcall(function()
         writefile(CONFIG_FOLDER .. "/" .. configName .. ".json", HttpService:JSONEncode(data))
     end)
-    if success then
-        Fluent:Notify({
-            Title = "Config Saved",
-            Content = "'" .. configName .. "' saved successfully!",
-            Duration = 2.5
-        })
-        return true
-    else
-        Fluent:Notify({
-            Title = "Error",
-            Content = "Failed to save config!",
-            Duration = 2.5
-        })
-        return false
-    end
+    return success
 end
 
 local function loadConfigByName(configName)
@@ -144,11 +130,6 @@ local function loadConfigByName(configName)
                 settings = decoded.settings
             end
             selectedConfig = configName
-            Fluent:Notify({
-                Title = "Config Loaded",
-                Content = "'" .. configName .. "' loaded successfully!",
-                Duration = 2.5
-            })
             return true
         end
     end
@@ -160,15 +141,7 @@ local function deleteConfig(configName)
     local success = pcall(function()
         delfile(CONFIG_FOLDER .. "/" .. configName .. ".json")
     end)
-    if success then
-        Fluent:Notify({
-            Title = "Config Deleted",
-            Content = "'" .. configName .. "' removed!",
-            Duration = 2.5
-        })
-        return true
-    end
-    return false
+    return success
 end
 
 -- ========== TELEPORT FUNCTIONS ==========
@@ -249,7 +222,7 @@ local function smoothTeleport(position, speed)
     end)
 end
 
--- ========== AUTO-CLICKER ==========
+-- ========== AUTO-CLICKER (CPS BASED) ==========
 local autoClickTask = nil
 local isAutoClicking = false
 
@@ -270,7 +243,9 @@ local function startAutoClick()
                 task.wait(0.05)
                 VirtualInputManager:SendMouseButtonEvent(centerX, centerY, 0, false, game, 0)
             end)
-            task.wait(settings.clickDelay)
+            -- CPS based delay: delay = 1 / CPS
+            local clickDelay = 1 / math.clamp(settings.cps, 1, 250)
+            task.wait(clickDelay)
         end
     end)
 end
@@ -304,11 +279,6 @@ local function startFarmLoop()
             if spots[currentSpot] and spots[currentSpot].set then
                 smoothTeleport(spots[currentSpot], settings.tweenSpeed)
                 startAutoClick()
-                Fluent:Notify({
-                    Title = "Farming",
-                    Content = "Working at " .. spots[currentSpot].name,
-                    Duration = 2
-                })
                 task.wait(settings.loopDelay)
                 stopAutoClick()
             end
@@ -353,13 +323,44 @@ local function getHungerPercentage()
     return hunger
 end
 
+local function getHealthPercentage() --  long ah name btw
+    local health = nil
+    pcall(function()
+        local healthLabel = player.PlayerGui.MainGui.Panels.Stats.Bars.Health.ValueLabel
+        if healthLabel then
+            health = tonumber(healthLabel.Text)
+        end
+    end)
+    return health
+end
+
+local function startAutoHeal()
+    if autoHealConnection then
+        autoHealConnection:Disconnect()
+    end
+    isAutoHealing = true
+    autoHealConnection = RunService.Heartbeat:Connect(function()
+        if not isAutoHealing then return end
+        local health = getHealthPercentage()
+        if health and health < healthThreshold then
+            eatFood(selectedFood)
+        end
+    end)
+end
+
+local function stopAutoHeal()
+    isAutoHealing = false
+    if autoHealConnection then
+        autoHealConnection:Disconnect()
+        autoHealConnection = nil
+    end
+end
+
 local function startAutoEat()
     if autoEatConnection then
         autoEatConnection:Disconnect()
     end
     isAutoEating = true
-
-    -- Use Heartbeat to continuously check hunger
     autoEatConnection = RunService.Heartbeat:Connect(function()
         if not isAutoEating then return end
 
@@ -375,73 +376,6 @@ local function stopAutoEat()
     if autoEatConnection then
         autoEatConnection:Disconnect()
         autoEatConnection = nil
-    end
-end
-
--- ========== AUTO HEAL FUNCTIONS (HEALTH BAR BASED) ==========
-local function useHealItem(itemName)
-    pcall(function()
-        -- Healing items in inventory (same system as food, these items restore health)
-        local healItems = {
-            Bloodfruit = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Bloodfruit"),
-            Berry = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Berry"),
-            Lemon = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Lemon"),
-            ["Cooked Meat"] = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Cooked Meat"),
-            ["Cooked Fish"] = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Cooked Fish")
-        }
-
-        local item = healItems[itemName]
-        if item then
-            local itemSlot = item.LayoutOrder
-            local input = {0, 50, itemSlot, 0}
-            local str = {}
-            for _, b in ipairs(input) do
-                table.insert(str, string.char(b))
-            end
-            local result = table.concat(str)
-            local args = {buffer.fromstring(result)}
-            game:GetService("ReplicatedStorage"):WaitForChild("ByteNetReliable"):FireServer(unpack(args))
-        end
-    end)
-end
-
-local function getHealthPercentage()
-    local healthPercent = nil
-    pcall(function()
-        local char = player.Character
-        if char then
-            local humanoid = char:FindFirstChild("Humanoid")
-            if humanoid then
-                healthPercent = (humanoid.Health / humanoid.MaxHealth) * 100
-            end
-        end
-    end)
-    return healthPercent
-end
-
-local function startAutoHeal()
-    if autoHealConnection then
-        autoHealConnection:Disconnect()
-    end
-    isAutoHealing = true
-
-    -- Use Heartbeat to continuously check health
-    autoHealConnection = RunService.Heartbeat:Connect(function()
-        if not isAutoHealing then return end
-
-        local health = getHealthPercentage()
-        if health and health < healthThreshold then
-            useHealItem(selectedHealItem)
-            task.wait(0.5) -- Small cooldown to prevent spam
-        end
-    end)
-end
-
-local function stopAutoHeal()
-    isAutoHealing = false
-    if autoHealConnection then
-        autoHealConnection:Disconnect()
-        autoHealConnection = nil
     end
 end
 
@@ -461,12 +395,6 @@ local Window = Fluent:CreateWindow({
     Acrylic = true,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
-})
-
-Fluent:Notify({
-    Title = "NxReborn",
-    Content = "Loading script...\nMade by iy_66 and nxploit",
-    Duration = 5
 })
 
 -- Get reference to Fluent's ScreenGui for toggle functionality
@@ -524,17 +452,6 @@ for i = 1, 4 do
             if spots[i].set then
                 stopAutoClick()
                 smoothTeleport(spots[i], settings.tweenSpeed)
-                Fluent:Notify({
-                    Title = "Teleported",
-                    Content = "Arrived at " .. spots[i].name,
-                    Duration = 2
-                })
-            else
-                Fluent:Notify({
-                    Title = "Error",
-                    Content = "Set " .. spots[i].name .. " position first!",
-                    Duration = 2
-                })
             end
         end
     })
@@ -576,11 +493,6 @@ for i = 1, 4 do
                 spots[i].y = pos.Y
                 spots[i].z = pos.Z
                 spots[i].set = true
-                Fluent:Notify({
-                    Title = "Position Saved",
-                    Content = spots[i].name .. " has been set!",
-                    Duration = 2
-                })
                 saveConfigAs(selectedConfig)
             end
         end
@@ -597,11 +509,6 @@ SetSpotsTab:AddButton({
             spots[i].z = 0
             spots[i].set = false
         end
-        Fluent:Notify({
-            Title = "Cleared",
-            Content = "All spot positions have been reset!",
-            Duration = 2
-        })
     end
 })
 
@@ -622,26 +529,11 @@ local FarmToggle = FarmTab:AddToggle("AutoFarm", {
             end
             if anySet then
                 startFarmLoop()
-                Fluent:Notify({
-                    Title = "Auto Farm",
-                    Content = "Farming has started!",
-                    Duration = 2
-                })
             else
                 FarmToggle:SetValue(false)
-                Fluent:Notify({
-                    Title = "Error",
-                    Content = "Set at least one spot first!",
-                    Duration = 2
-                })
             end
         else
             stopFarmLoop()
-            Fluent:Notify({
-                Title = "Auto Farm",
-                Content = "Farming has stopped!",
-                Duration = 2
-            })
         end
     end
 })
@@ -658,15 +550,36 @@ local FarmTimeSlider = FarmTab:AddSlider("FarmTime", {
     end
 })
 
-local ClickDelaySlider = FarmTab:AddSlider("ClickDelay", {
-    Title = "Click Delay",
-    Description = "Set to 0.05 recommended",
-    Default = settings.clickDelay,
-    Min = 0.05,
-    Max = 1,
-    Rounding = 2,
+-- CPS Input Field
+local CPSInput = FarmTab:AddInput("CPSInput", {
+    Title = "CPS (Clicks Per Second)",
+    Default = tostring(settings.cps),
+    Placeholder = "Enter CPS (1-250)...",
+    Numeric = true,
+    Finished = true,
     Callback = function(Value)
-        settings.clickDelay = Value
+        local cpsValue = tonumber(Value)
+        if cpsValue then
+            cpsValue = math.clamp(cpsValue, 1, 250)
+            settings.cps = cpsValue
+            -- Update slider to match
+            if CPSSlider then
+                CPSSlider:SetValue(cpsValue)
+            end
+        end
+    end
+})
+
+-- CPS Slider
+local CPSSlider = FarmTab:AddSlider("CPSSlider", {
+    Title = "CPS Slider",
+    Description = "Adjust clicks per second (1-250)",
+    Default = settings.cps,
+    Min = 1,
+    Max = 250,
+    Rounding = 0,
+    Callback = function(Value)
+        settings.cps = Value
     end
 })
 
@@ -681,28 +594,18 @@ local FoodDropdown = AutoEatTab:AddDropdown("FoodSelect", {
     Multi = false,
     Callback = function(Value)
         selectedFood = Value
-        Fluent:Notify({
-            Title = "Food Selected",
-            Content = "Auto eat will use: " .. Value,
-            Duration = 2
-        })
     end
 })
 
 local HungerThresholdSlider = AutoEatTab:AddSlider("HungerThreshold", {
     Title = "Hunger Threshold (%)",
     Description = "Eat when hunger drops below this value",
-    Default = 80,
+    Default = 85,
     Min = 10,
     Max = 95,
     Rounding = 0,
     Callback = function(Value)
         hungerThreshold = Value
-        Fluent:Notify({
-            Title = "Threshold Updated",
-            Content = "Will eat when hunger < " .. Value .. "%",
-            Duration = 2
-        })
     end
 })
 
@@ -711,7 +614,6 @@ local HungerParagraph = AutoEatTab:AddParagraph({
     Content = "Loading..."
 })
 
--- Update hunger display
 task.spawn(function()
     while task.wait(0.5) do
         if not scriptLoaded then break end
@@ -733,124 +635,62 @@ local AutoEatToggle = AutoEatTab:AddToggle("AutoEat", {
     Callback = function(Value)
         if Value then
             startAutoEat()
-            Fluent:Notify({
-                Title = "Auto Eat",
-                Content = "Will eat " .. selectedFood .. " when hunger < " .. hungerThreshold .. "%",
-                Duration = 2
-            })
         else
             stopAutoEat()
-            Fluent:Notify({
-                Title = "Auto Eat",
-                Content = "Auto eat has stopped!",
-                Duration = 2
-            })
         end
     end
 })
 
-AutoEatTab:AddButton({
-    Title = "Eat Once",
-    Description = "Eat selected food once",
-    Callback = function()
-        eatFood(selectedFood)
-        Fluent:Notify({
-            Title = "Food Eaten",
-            Content = "Ate " .. selectedFood,
-            Duration = 1
-        })
-    end
-})
-
--- ========== TAB: AUTO HEAL (HEALTH BAR BASED) ==========
-local AutoHealTab = Window:AddTab({Title = "Auto Heal", Icon = "heart"})
-
-local HealItemDropdown = AutoHealTab:AddDropdown("HealItemSelect", {
-    Title = "Select Heal Item",
-    Description = "Choose which item to use for healing",
-    Values = {"Bloodfruit", "Berry", "Lemon", "Cooked Meat", "Cooked Fish"},
-    Default = "Bloodfruit",
-    Multi = false,
-    Callback = function(Value)
-        selectedHealItem = Value
-        Fluent:Notify({
-            Title = "Heal Item Selected",
-            Content = "Auto heal will use: " .. Value,
-            Duration = 2
-        })
-    end
-})
-
-local HealthThresholdSlider = AutoHealTab:AddSlider("HealthThreshold", {
+local HealthThresholdSlider = AutoEatTab:AddSlider("HealthThreshold", {
     Title = "Health Threshold (%)",
-    Description = "Heal when health drops below this value",
-    Default = 80,
+    Description = "Eat when health drops below this value",
+    Default = 85,
     Min = 10,
-    Max = 95,
+    Max = 100,
     Rounding = 0,
     Callback = function(Value)
         healthThreshold = Value
-        Fluent:Notify({
-            Title = "Threshold Updated",
-            Content = "Will heal when health < " .. Value .. "%",
-            Duration = 2
-        })
     end
 })
 
-local HealthParagraphHeal = AutoHealTab:AddParagraph({
+local HealthParagraph = AutoEatTab:AddParagraph({
     Title = "Current Health",
     Content = "Loading..."
 })
 
--- Update health display for Auto Heal tab
 task.spawn(function()
     while task.wait(0.5) do
         if not scriptLoaded then break end
         pcall(function()
             local health = getHealthPercentage()
             if health then
-                HealthParagraphHeal:SetDesc("Health: " .. math.floor(health) .. "% | Threshold: " .. healthThreshold .. "%")
+                HealthParagraph:SetDesc("Health: " .. math.floor(health) .. "% | Threshold: " .. healthThreshold .. "%")
             else
-                HealthParagraphHeal:SetDesc("Unable to read health")
+                HealthParagraph:SetDesc("Unable to read health")
             end
         end)
     end
 end)
 
-local AutoHealToggle = AutoHealTab:AddToggle("AutoHeal", {
+local AutoHealToggle = AutoEatTab:AddToggle("AutoHeal", {
     Title = "Enable Auto Heal",
-    Description = "Automatically heal when health drops below threshold",
+    Description = "Automatically eat when health drops below threshold",
     Default = false,
     Callback = function(Value)
         if Value then
             startAutoHeal()
-            Fluent:Notify({
-                Title = "Auto Heal",
-                Content = "Will use " .. selectedHealItem .. " when health < " .. healthThreshold .. "%",
-                Duration = 2
-            })
         else
             stopAutoHeal()
-            Fluent:Notify({
-                Title = "Auto Heal",
-                Content = "Auto heal has stopped!",
-                Duration = 2
-            })
         end
     end
 })
+---
 
-AutoHealTab:AddButton({
-    Title = "Heal Once",
-    Description = "Use selected heal item once",
+AutoEatTab:AddButton({
+    Title = "Eat Once",
+    Description = "Eat selected food once",
     Callback = function()
-        useHealItem(selectedHealItem)
-        Fluent:Notify({
-            Title = "Item Used",
-            Content = "Used " .. selectedHealItem,
-            Duration = 1
-        })
+        eatFood(selectedFood)
     end
 })
 
@@ -889,11 +729,6 @@ SettingsTab:AddButton({
     Description = "Remove saved config",
     Callback = function()
         if selectedConfig == "Default" then
-            Fluent:Notify({
-                Title = "Error",
-                Content = "Cannot delete Default config!",
-                Duration = 2
-            })
             return
         end
         deleteConfig(selectedConfig)
@@ -934,17 +769,11 @@ SettingsTab:AddButton({
     Title = "Unload Script",
     Description = "Completely unload and remove the script",
     Callback = function()
-        Fluent:Notify({
-            Title = "Unloading",
-            Content = "Script is being unloaded...",
-            Duration = 2
-        })
-
         -- Stop all running tasks
         scriptLoaded = false
         cleanupScript()
 
-        -- Small delay to show notification
+        -- Small delay
         task.wait(0.5)
 
         -- Destroy all GUIs
@@ -956,10 +785,6 @@ SettingsTab:AddButton({
         pcall(function()
             local playerGui = player:FindFirstChild("PlayerGui")
             if playerGui then
-                local floatingGui = playerGui:FindFirstChild("NxRebornFloatBtn")
-                if floatingGui then
-                    floatingGui:Destroy()
-                end
                 local toggleGui = playerGui:FindFirstChild("NxRebornToggleBtn")
                 if toggleGui then
                     toggleGui:Destroy()
@@ -968,187 +793,6 @@ SettingsTab:AddButton({
         end)
     end
 })
-
-
--- ========== FLOATING TOGGLE BUTTON (FARM ON/OFF) - IMPROVED DESIGN ==========
-local FloatingGui = Instance.new("ScreenGui")
-FloatingGui.Name = "NxRebornFloatBtn"
-FloatingGui.ResetOnSpawn = false
-FloatingGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-FloatingGui.Parent = player:WaitForChild("PlayerGui")
-
--- Main container with shadow
-local ButtonShadow = Instance.new("Frame")
-ButtonShadow.Size = UDim2.new(0, 120, 0, 50)
-ButtonShadow.Position = UDim2.new(1, -140, 0, 20)
-ButtonShadow.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ButtonShadow.BackgroundTransparency = 0.7
-ButtonShadow.BorderSizePixel = 0
-ButtonShadow.Parent = FloatingGui
-
-local ShadowCorner = Instance.new("UICorner")
-ShadowCorner.CornerRadius = UDim.new(0, 16)
-ShadowCorner.Parent = ButtonShadow
-
-local ButtonFrame = Instance.new("Frame")
-ButtonFrame.Size = UDim2.new(0, 116, 0, 46)
-ButtonFrame.Position = UDim2.new(0, 2, 0, 2)
-ButtonFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
-ButtonFrame.BorderSizePixel = 0
-ButtonFrame.Parent = ButtonShadow
-
-local ButtonCorner = Instance.new("UICorner")
-ButtonCorner.CornerRadius = UDim.new(0, 14)
-ButtonCorner.Parent = ButtonFrame
-
--- Gradient overlay
-local ButtonGradient = Instance.new("UIGradient")
-ButtonGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 45, 60)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 25, 35))
-})
-ButtonGradient.Rotation = 90
-ButtonGradient.Parent = ButtonFrame
-
-local ButtonStroke = Instance.new("UIStroke")
-ButtonStroke.Color = Color3.fromRGB(255, 80, 80)
-ButtonStroke.Thickness = 2
-ButtonStroke.Transparency = 0.3
-ButtonStroke.Parent = ButtonFrame
-
--- Toggle switch background
-local SwitchBg = Instance.new("Frame")
-SwitchBg.Size = UDim2.new(0, 44, 0, 24)
-SwitchBg.Position = UDim2.new(0, 10, 0.5, -12)
-SwitchBg.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
-SwitchBg.BorderSizePixel = 0
-SwitchBg.Parent = ButtonFrame
-
-local SwitchBgCorner = Instance.new("UICorner")
-SwitchBgCorner.CornerRadius = UDim.new(1, 0)
-SwitchBgCorner.Parent = SwitchBg
-
--- Toggle switch knob
-local SwitchKnob = Instance.new("Frame")
-SwitchKnob.Size = UDim2.new(0, 20, 0, 20)
-SwitchKnob.Position = UDim2.new(0, 2, 0.5, -10)
-SwitchKnob.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
-SwitchKnob.BorderSizePixel = 0
-SwitchKnob.Parent = SwitchBg
-
-local KnobCorner = Instance.new("UICorner")
-KnobCorner.CornerRadius = UDim.new(1, 0)
-KnobCorner.Parent = SwitchKnob
-
--- Knob glow effect
-local KnobGlow = Instance.new("UIStroke")
-KnobGlow.Color = Color3.fromRGB(255, 100, 100)
-KnobGlow.Thickness = 2
-KnobGlow.Transparency = 0.5
-KnobGlow.Parent = SwitchKnob
-
--- Status text
-local ButtonText = Instance.new("TextLabel")
-ButtonText.Size = UDim2.new(0, 50, 1, 0)
-ButtonText.Position = UDim2.new(0, 58, 0, 0)
-ButtonText.BackgroundTransparency = 1
-ButtonText.Text = "OFF"
-ButtonText.TextColor3 = Color3.fromRGB(255, 100, 100)
-ButtonText.Font = Enum.Font.GothamBlack
-ButtonText.TextSize = 16
-ButtonText.TextXAlignment = Enum.TextXAlignment.Left
-ButtonText.Parent = ButtonFrame
-
--- Invisible button for interaction
-local FloatingButton = Instance.new("TextButton")
-FloatingButton.Size = UDim2.new(1, 0, 1, 0)
-FloatingButton.BackgroundTransparency = 1
-FloatingButton.Text = ""
-FloatingButton.Parent = ButtonShadow
-
--- Improved Draggable with drag detection
-local dragging, dragInput, dragStart, startPos = false, nil, nil, nil
-local dragMoved = false
-
-FloatingButton.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = true
-        dragMoved = false
-        dragStart = input.Position
-        startPos = ButtonShadow.Position
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
-end)
-
-FloatingButton.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragInput = input
-    end
-end)
-
-UserInputService.InputChanged:Connect(function(input)
-    if input == dragInput and dragging then
-        local delta = input.Position - dragStart
-        if delta.Magnitude > 5 then
-            dragMoved = true
-        end
-        ButtonShadow.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-    end
-end)
-
-FloatingButton.MouseButton1Click:Connect(function()
-    if isLooping then
-        stopFarmLoop()
-        FarmToggle:SetValue(false)
-    else
-        local anySet = false
-        for i = 1, 4 do
-            if spots[i].set then
-                anySet = true
-                break
-            end
-        end
-        if anySet then
-            startFarmLoop()
-            FarmToggle:SetValue(true)
-        else
-            Fluent:Notify({
-                Title = "Error",
-                Content = "Set spots first!",
-                Duration = 2
-            })
-        end
-    end
-end)
-
--- Update floating button state with smooth animations
-task.spawn(function()
-    while FloatingGui and FloatingGui.Parent do
-        task.wait(0.3)
-        if not scriptLoaded then break end
-        if isLooping then
-            -- ON state - Green
-            ButtonText.Text = "ON"
-            TweenService:Create(ButtonText, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(100, 255, 150)}):Play()
-            TweenService:Create(SwitchBg, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(40, 120, 80)}):Play()
-            TweenService:Create(SwitchKnob, TweenInfo.new(0.3, Enum.EasingStyle.Back), {Position = UDim2.new(0, 22, 0.5, -10), BackgroundColor3 = Color3.fromRGB(100, 255, 150)}):Play()
-            TweenService:Create(KnobGlow, TweenInfo.new(0.3), {Color = Color3.fromRGB(100, 255, 150)}):Play()
-            TweenService:Create(ButtonStroke, TweenInfo.new(0.3), {Color = Color3.fromRGB(100, 255, 150)}):Play()
-        else
-            -- OFF state - Red
-            ButtonText.Text = "OFF"
-            TweenService:Create(ButtonText, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(255, 100, 100)}):Play()
-            TweenService:Create(SwitchBg, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(60, 60, 70)}):Play()
-            TweenService:Create(SwitchKnob, TweenInfo.new(0.3, Enum.EasingStyle.Back), {Position = UDim2.new(0, 2, 0.5, -10), BackgroundColor3 = Color3.fromRGB(255, 100, 100)}):Play()
-            TweenService:Create(KnobGlow, TweenInfo.new(0.3), {Color = Color3.fromRGB(255, 100, 100)}):Play()
-            TweenService:Create(ButtonStroke, TweenInfo.new(0.3), {Color = Color3.fromRGB(255, 80, 80)}):Play()
-        end
-    end
-end)
 
 
 -- ========== MOBILE GUI TOGGLE BUTTON (OPEN/CLOSE GUI) ==========
@@ -1261,9 +905,3 @@ ensureConfigFolder()
 if not loadConfigByName("Default") then
     saveConfigAs("Default")
 end
-
-Fluent:Notify({
-    Title = "NxReborn Loaded",
-    Content = "Booga Booga Reborn Edition - Fluent UI\nTap NX button to toggle GUI",
-    Duration = 5
-})
