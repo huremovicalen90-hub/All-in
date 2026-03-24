@@ -11,18 +11,6 @@ local VirtualInputManager = game:GetService('VirtualInputManager')
 local TweenService = game:GetService('TweenService')
 local LocalPlayer = Players.LocalPlayer
 
--- UserId whitelist
-local Whitelist = {
-    [2028943444] = true,
-    [7319862934] = true,
-	[10503606140] = true,
-	[8225915377] = true
-}
-
-if not Whitelist[LocalPlayer.UserId] then
-    LocalPlayer:Kick("You Are Not Whitelisted!")
-    return
-end
 
 -- Load Fluent UI
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
