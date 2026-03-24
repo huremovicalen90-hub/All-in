@@ -57,6 +57,12 @@ local autoEatConnection = nil
 local selectedFood = "Berry"
 local hungerThreshold = 85 -- Eat when hunger drops below this percentage
 
+-- Auto Heal variables
+local isAutoHealing = false
+local autoHealConnection = nil
+local selectedHealItem = "Bloodfruit" -- Default healing item
+local healthThreshold = 80 -- Heal when health drops below this percentage
+
 -- Script state variables
 local scriptLoaded = true
 local guiVisible = true
@@ -372,10 +378,78 @@ local function stopAutoEat()
     end
 end
 
+-- ========== AUTO HEAL FUNCTIONS (HEALTH BAR BASED) ==========
+local function useHealItem(itemName)
+    pcall(function()
+        -- Healing items in inventory (same system as food, these items restore health)
+        local healItems = {
+            Bloodfruit = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Bloodfruit"),
+            Berry = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Berry"),
+            Lemon = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Lemon"),
+            ["Cooked Meat"] = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Cooked Meat"),
+            ["Cooked Fish"] = player.PlayerGui.MainGui.RightPanel.Inventory.List:FindFirstChild("Cooked Fish")
+        }
+
+        local item = healItems[itemName]
+        if item then
+            local itemSlot = item.LayoutOrder
+            local input = {0, 50, itemSlot, 0}
+            local str = {}
+            for _, b in ipairs(input) do
+                table.insert(str, string.char(b))
+            end
+            local result = table.concat(str)
+            local args = {buffer.fromstring(result)}
+            game:GetService("ReplicatedStorage"):WaitForChild("ByteNetReliable"):FireServer(unpack(args))
+        end
+    end)
+end
+
+local function getHealthPercentage()
+    local healthPercent = nil
+    pcall(function()
+        local char = player.Character
+        if char then
+            local humanoid = char:FindFirstChild("Humanoid")
+            if humanoid then
+                healthPercent = (humanoid.Health / humanoid.MaxHealth) * 100
+            end
+        end
+    end)
+    return healthPercent
+end
+
+local function startAutoHeal()
+    if autoHealConnection then
+        autoHealConnection:Disconnect()
+    end
+    isAutoHealing = true
+
+    -- Use Heartbeat to continuously check health
+    autoHealConnection = RunService.Heartbeat:Connect(function()
+        if not isAutoHealing then return end
+
+        local health = getHealthPercentage()
+        if health and health < healthThreshold then
+            useHealItem(selectedHealItem)
+            task.wait(0.5) -- Small cooldown to prevent spam
+        end
+    end)
+end
+
+local function stopAutoHeal()
+    isAutoHealing = false
+    if autoHealConnection then
+        autoHealConnection:Disconnect()
+        autoHealConnection = nil
+    end
+end
+
 local function cleanupScript()
     stopFarmLoop()
     stopAutoClick()
     stopAutoEat()
+    stopAutoHeal()
 end
 
 -- ========== FLUENT UI GUI ==========
@@ -683,6 +757,98 @@ AutoEatTab:AddButton({
         Fluent:Notify({
             Title = "Food Eaten",
             Content = "Ate " .. selectedFood,
+            Duration = 1
+        })
+    end
+})
+
+-- ========== TAB: AUTO HEAL (HEALTH BAR BASED) ==========
+local AutoHealTab = Window:AddTab({Title = "Auto Heal", Icon = "heart"})
+
+local HealItemDropdown = AutoHealTab:AddDropdown("HealItemSelect", {
+    Title = "Select Heal Item",
+    Description = "Choose which item to use for healing",
+    Values = {"Bloodfruit", "Berry", "Lemon", "Cooked Meat", "Cooked Fish"},
+    Default = "Bloodfruit",
+    Multi = false,
+    Callback = function(Value)
+        selectedHealItem = Value
+        Fluent:Notify({
+            Title = "Heal Item Selected",
+            Content = "Auto heal will use: " .. Value,
+            Duration = 2
+        })
+    end
+})
+
+local HealthThresholdSlider = AutoHealTab:AddSlider("HealthThreshold", {
+    Title = "Health Threshold (%)",
+    Description = "Heal when health drops below this value",
+    Default = 80,
+    Min = 10,
+    Max = 95,
+    Rounding = 0,
+    Callback = function(Value)
+        healthThreshold = Value
+        Fluent:Notify({
+            Title = "Threshold Updated",
+            Content = "Will heal when health < " .. Value .. "%",
+            Duration = 2
+        })
+    end
+})
+
+local HealthParagraphHeal = AutoHealTab:AddParagraph({
+    Title = "Current Health",
+    Content = "Loading..."
+})
+
+-- Update health display for Auto Heal tab
+task.spawn(function()
+    while task.wait(0.5) do
+        if not scriptLoaded then break end
+        pcall(function()
+            local health = getHealthPercentage()
+            if health then
+                HealthParagraphHeal:SetDesc("Health: " .. math.floor(health) .. "% | Threshold: " .. healthThreshold .. "%")
+            else
+                HealthParagraphHeal:SetDesc("Unable to read health")
+            end
+        end)
+    end
+end)
+
+local AutoHealToggle = AutoHealTab:AddToggle("AutoHeal", {
+    Title = "Enable Auto Heal",
+    Description = "Automatically heal when health drops below threshold",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+            startAutoHeal()
+            Fluent:Notify({
+                Title = "Auto Heal",
+                Content = "Will use " .. selectedHealItem .. " when health < " .. healthThreshold .. "%",
+                Duration = 2
+            })
+        else
+            stopAutoHeal()
+            Fluent:Notify({
+                Title = "Auto Heal",
+                Content = "Auto heal has stopped!",
+                Duration = 2
+            })
+        end
+    end
+})
+
+AutoHealTab:AddButton({
+    Title = "Heal Once",
+    Description = "Use selected heal item once",
+    Callback = function()
+        useHealItem(selectedHealItem)
+        Fluent:Notify({
+            Title = "Item Used",
+            Content = "Used " .. selectedHealItem,
             Duration = 1
         })
     end
