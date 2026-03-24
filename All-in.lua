@@ -597,12 +597,25 @@ local FoodDropdown = AutoEatTab:AddDropdown("FoodSelect", {
     end
 })
 
+-- CPS Limiter for Auto Eat Tab
+local AutoEatCPSSlider = AutoEatTab:AddSlider("AutoEatCPS", {
+    Title = "CPS Limiter",
+    Description = "Clicks per second (1-250)",
+    Default = settings.cps,
+    Min = 1,
+    Max = 250,
+    Rounding = 0,
+    Callback = function(Value)
+        settings.cps = Value
+    end
+})
+
 local HungerThresholdSlider = AutoEatTab:AddSlider("HungerThreshold", {
     Title = "Hunger Threshold (%)",
     Description = "Eat when hunger drops below this value",
     Default = 85,
     Min = 10,
-    Max = 95,
+    Max = 100,
     Rounding = 0,
     Callback = function(Value)
         hungerThreshold = Value
